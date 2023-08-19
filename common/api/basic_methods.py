@@ -7,7 +7,7 @@ class Api:
     '''
 
     _HEADERS = {'Content-Type': 'application/json'}
-
+    token = {'trainer_token':'9bd189a8403bc75b51d64f3e84e73754'}
     # _TIMEOUT = 10
 
     def __init__(self):
