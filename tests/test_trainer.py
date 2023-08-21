@@ -6,7 +6,7 @@ import pytest
 
 class TestTrainers():
 
-    def test_get_trainer_success(self, api)
+    def test_get_trainer_success(self, api):
 
         response = api.get_trainers(trainer_id=1927)
         api.status_code_should_be(200)
