@@ -2,9 +2,6 @@ import requests
 from common.helper.logger import log
 
 class Api:
-    '''
-    Main methods for API
-    '''
 
     _HEADERS = {'Content-Type': 'application/json'}
     token = {'trainer_token':'9bd189a8403bc75b51d64f3e84e73754'}
@@ -81,14 +78,13 @@ class Api:
         return self
 
     def delete(self, url: str, headers: dict = None, json_body: dict = None, token: str = None):
-        '''
+        """
         Basic DELETE-request
             :param url:
-            :param params:
             :param json_body:
             :param token:
             :return:
-        '''
+        """
         if token:
             self._HEADERS['trainer_token'] = token
 
@@ -100,11 +96,11 @@ class Api:
 
     def status_code_should_be(self, expected_code: int):
 
-        '''
+        """
         Checking the status code
             :param expected_code:
             :return:
-        '''
+        """
 
         actual_code = self.response.status_code
         assert expected_code == actual_code, f'\nОжидаемый статус-код: {expected_code} ' \

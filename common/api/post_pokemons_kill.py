@@ -1,5 +1,6 @@
 from common.api.basic_methods import Api
 
+
 class PostKillPokemonApi(Api):
 
     def post_kill_pokemon(self, request_body={}, headers={}):

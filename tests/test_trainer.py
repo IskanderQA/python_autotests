@@ -5,16 +5,8 @@ import pytest
 
 
 class TestTrainers():
-    '''
-    Tests for trainers
-    '''
 
-    def test_get_trainer_success(self, api):
-
-        '''
-        GET /trainers?trainer_id=
-        :return:
-        '''
+    def test_get_trainer_success(self, api)
 
         response = api.get_trainers(trainer_id=1927)
         api.status_code_should_be(200)
@@ -23,11 +15,6 @@ class TestTrainers():
 
     @pytest.mark.parametrize('case', CASE_TRAINERS)
     def test_get_trainer_errors(self, api, case):
-
-        '''
-        GET /trainers?trainer_id=
-        :return:
-        '''
 
         response = api.get_trainers(trainer_id=case['id'])
         api.status_code_should_be(case['status_code'])
@@ -38,11 +25,6 @@ class TestTrainers():
 
     @pytest.mark.parametrize('pagination', CASE_PAGINATION)
     def test_get_trainers_check_pagination(self, pagination, api):
-
-        '''
-        GET /trainers
-        :return:
-        '''
 
         response = api.get_trainers(page=pagination['page'])
         assert len(response.response.json()) == 31
