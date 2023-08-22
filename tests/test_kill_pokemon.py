@@ -30,3 +30,4 @@ def test_kill_pokemon_with_errors(request_body, token, message):
     response = PostKillPokemonApi().post_kill_pokemon(request_body=request_body, headers=token)
 
     assert response.response.json() == message
+
