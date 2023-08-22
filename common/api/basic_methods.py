@@ -1,18 +1,20 @@
 import requests
 from common.helper.logger import log
+from config import POKEMONS_URL, token
+from constants import _HEADERS
 
-class Api:
 
-    _HEADERS = {'Content-Type': 'application/json'}
-    token = {'trainer_token':'9bd189a8403bc75b51d64f3e84e73754'}
-    # _TIMEOUT = 10
+class Api():
+
+    _HEADERS = _HEADERS
+    token = token
 
     def __init__(self):
         '''
         Initialization
         '''
         self.response = None
-        self.url = 'https://api.pokemonbattle.me:9104'
+        self.url = f'{POKEMONS_URL}'
 
     def get(self, url: str, params: dict = None, token: str = None):
         '''

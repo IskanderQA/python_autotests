@@ -1,14 +1,15 @@
 import pytest
 from test_data.change_password_data import PASSWORD_CASES, valid_message
+from config import token, email, password
 
 
 def test_change_password_success(password_api):
 
-    response = password_api.put_change_password(request_body={"email": "biketrial666@yandex.ru",
-                                                              "password_old": "Lotus_elise1",
-                                                              "password_new": "Lotus_elise1"
+    response = password_api.put_change_password(request_body={"email": email,
+                                                              "password_old": password,
+                                                              "password_new": password
                                                               },
-                                                headers={'trainer_token': '083c977e6f1218a0b727e97a489c43a1'})
+                                                headers={'trainer_token': token})
     assert response.response.json() == valid_message
 
 

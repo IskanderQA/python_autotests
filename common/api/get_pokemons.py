@@ -1,4 +1,5 @@
 from common.api.basic_methods import Api
+from config import POKEMONS_URL
 
 
 class GetPokemonApi(Api):
