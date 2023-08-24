@@ -1,5 +1,4 @@
 # Структура
-* fixtures: фикстуры
 * common: 
   * api: вспомогательные проверочные функции/методы
   * helpers: logger, Schema
