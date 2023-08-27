@@ -1,12 +1,15 @@
 from config import card_number, card_actual, card_csv, num, token
 
-CASE_AVATAR = [
+CASE_AVATAR_SUCCESS = [
     ({"card_number": card_number,
       "card_csv": card_csv,
       "card_actual": card_actual,
       "num": num,
       "avatar_id": "1"}, {'trainer_token': token},
-     {'message': 'Транзакция успешна', 'photo': '/images/trainer_avatar_02.png'}),
+     {'message': 'Транзакция успешна', 'photo': '/images/trainer_avatar_02.png'})
+]
+
+CASE_AVATAR_WITH_ERRORS = [
     ({"card_number": "123",
       "card_csv": card_csv,
       "card_actual": card_actual,
@@ -40,6 +43,12 @@ CASE_AVATAR = [
     ({"card_number": card_number,
       "card_csv": card_csv,
       "card_actual": card_actual,
+      "num": 56,
+      "avatar_id": "1"}, {'trainer_token': token},
+     {'message': 'Неправильно введен подтверждающий код 3D-secure'}),
+    ({"card_number": card_number,
+      "card_csv": card_csv,
+      "card_actual": card_actual,
       "num": num,
       "avatar_id": "asdasdqwe"}, {'trainer_token': token},
      {'message': 'Данного аватара не существует'}),
@@ -61,7 +70,10 @@ CASE_AVATAR = [
       "num": num,
       "avatar_id": "1"}, {'trainer_token': ''},
      {'message': 'токен отсутствует', 'status': 'error'}),
-
+    ({"card_number": card_number,
+      "card_csv": '300',
+      "card_actual": card_actual,
+      "num": num,
+      "avatar_id": "1"}, {'trainer_token': token},
+     {'message': 'На карте не достаточно средств!', 'status': 'error'})
 ]
-
-success_message = {'message': 'Транзакция успешна', 'photo': '/images/trainer_avatar_02.png'}
