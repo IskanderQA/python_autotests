@@ -1,5 +1,6 @@
 from common.helper.Schema.pokemons import pokemons_valid_structure
 from pytest_voluptuous import S
+from config import trainer_id
 
 
 def test_get_pokemons(get_pokemon_api):
@@ -9,7 +10,7 @@ def test_get_pokemons(get_pokemon_api):
 
 
 def test_get_pokemons_with_trainer_id(get_pokemon_api):
-    response = get_pokemon_api.get_pokemons(trainer_id=2006)
+    response = get_pokemon_api.get_pokemons(trainer_id=trainer_id)
     assert S(pokemons_valid_structure) == response.response.json()[0] and len(response.response.json()) <= 5
 
 
@@ -19,7 +20,7 @@ def test_get_pokemons_with_status(get_pokemon_api):
 
 
 def test_get_pokemons_with_trainer_id_and_status(get_pokemon_api):
-    response = get_pokemon_api.get_pokemons(status=1, trainer_id=2025)
+    response = get_pokemon_api.get_pokemons(status=1, trainer_id=trainer_id)
     assert S(pokemons_valid_structure) == response.response.json()[0]
 
 
@@ -49,7 +50,7 @@ def test_get_pokemons_in_pokeballs_any_other_value(get_pokemon_api):
 
 
 def test_get_pokemons_with_trainer_id_and_status_and_in_pokeball(get_pokemon_api):
-    response = get_pokemon_api.get_pokemons(status=1, trainer_id=2025, in_pokeball=0)
+    response = get_pokemon_api.get_pokemons(status=1, trainer_id=trainer_id, in_pokeball=0)
     assert S(pokemons_valid_structure) == response.response.json()[0]
 
 
@@ -58,6 +59,6 @@ def test_get_pokemons_with_pokemon_id(get_pokemon_api):
     assert S(pokemons_valid_structure) == response.response.json()
 
 
-def test_get_pokemons_with_trainer_id_and_status_and_in_pokeball(get_pokemon_api):
-    response = get_pokemon_api.get_pokemons(status=1, trainer_id=2025, in_pokeball=0, pokemon_id=6207)
+def test_get_pokemons_with_trainer_id_and_pokemon_id_and_status_and_in_pokeball(get_pokemon_api):
+    response = get_pokemon_api.get_pokemons(status=1, trainer_id=trainer_id, in_pokeball=0, pokemon_id=6207)
     assert S(pokemons_valid_structure) == response.response.json()

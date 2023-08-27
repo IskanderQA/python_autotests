@@ -1,4 +1,4 @@
-from config import token
+from config import token, trainer_id
 
 CASE_TRAINERS = [
     {'id': 1987, 'status_code': 200},
@@ -17,7 +17,7 @@ UPDATING_INFO_SUCCESS = [
          "name": "Ash",
          "city": "Tokyo"
      }, {'trainer_token': token},
-     {'id': '2006', 'message': 'Информация о тренере обновлена'})
+     'Информация о тренере обновлена')
 ]
 
 UPDATING_INFO_WITH_ERRORS = [
@@ -48,5 +48,5 @@ error_message_trainer_not_found = {'message': 'Тренер отсутствуе
 
 
 def get_pokemons_and_assignment_pokemon_id(get_pokemon_api):
-    get_pokemons_from_trainer = get_pokemon_api.get_pokemons(trainer_id=2006)
+    get_pokemons_from_trainer = get_pokemon_api.get_pokemons(trainer_id=trainer_id)
     return get_pokemons_from_trainer.response.json()[0]['id']

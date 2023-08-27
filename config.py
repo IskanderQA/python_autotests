@@ -8,8 +8,9 @@ POKEMONS_HOST = os.getenv('POKEMONS_HOST')
 POKEMONS_PORT = os.getenv('POKEMONS_PORT')
 POKEMONS_URL = f'{HTTP_SCHEMA}{POKEMONS_HOST}:{POKEMONS_PORT}'
 
-# Pokemons data
+# Trainer data
 token=os.getenv('TOKEN')
+trainer_id=os.getenv('TRAINER_ID')
 
 # User data
 email=os.getenv('EMAIL')

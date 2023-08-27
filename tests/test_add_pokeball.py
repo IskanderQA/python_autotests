@@ -2,6 +2,7 @@ from common.api.post_trainers_add_pokeball import AddPokeballApi
 from test_data.pokemons_data import ADD_POKEBALL_WITH_ERRORS
 from test_data.trainers_data import get_pokemons_and_assignment_pokemon_id
 from fixtures.pokemon_fixtures import create_pokemon_before_and_kill_all_after
+from config import trainer_id
 import pytest
 
 
@@ -29,7 +30,7 @@ def test_pokemon_already_in_pokeball(create_pokemon_before_and_kill_all_after, g
 def test_pokeballs_are_full(create_pokemon_before_and_kill_all_after, get_pokemon_api, create_pokemon_api):
     AddPokeballApi().create_three_pokemon_and_add_in_pokeball(create_pokemon_api, get_pokemon_api)
 
-    get_pokemons_from_trainer = get_pokemon_api.get_pokemons(trainer_id=2006)
+    get_pokemons_from_trainer = get_pokemon_api.get_pokemons(trainer_id=trainer_id)
     pokemon_id = get_pokemons_from_trainer.response.json()[3]['id']
 
     response = AddPokeballApi().post_add_pokeball(request_body={"pokemon_id": pokemon_id})
