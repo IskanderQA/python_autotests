@@ -1,6 +1,12 @@
 from config import email, password, token
 
-PASSWORD_CASES = [
+PASSWORD_CASES_SUCCESS = [
+    ({"email": email, "password_old": password, "password_new": password},
+     {'trainer_token': token},
+     "Успешная смена пароля")
+]
+
+PASSWORD_CASES_WITH_ERRORS = [
     ({'email': email, "password_old": "123", "password_new": "123"},
      {'trainer_token': token},
      {"message": "Пароль должен иметь хотя-бы одну заглавную букву", "status": "error"}),  # valid params
@@ -21,5 +27,3 @@ PASSWORD_CASES = [
      {'trainer_token': ''},
      {'message': 'токен отсутствует', 'status': 'error'}),
 ]
-
-valid_message = {"id": "2006", "message": "Успешная смена пароля"}

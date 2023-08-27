@@ -59,6 +59,7 @@ class Api():
     def put(self, url: str, headers: dict = None, params: dict = None, json_body: dict = None, token: str = None):
         '''
         Basic PUT-request
+            :param headers:
             :param url:
             :param params:
             :param json_body:
@@ -78,6 +79,22 @@ class Api():
                                      json=json_body)
         log(response=self.response, request_body=json_body)
         return self
+
+    def patch(self, url: str, headers: dict = None, json_body: dict = None, token: str = None):
+        '''
+        Basic PATCH-request
+            :param headers:
+            :param url:
+            :param json_body:
+            :param token:
+            :return:
+        '''
+
+        if token is not None:
+            self._HEADERS['trainer_token'] = token
+
+        if headers:
+            self._HEADERS.update(headers)
 
     def delete(self, url: str, headers: dict = None, json_body: dict = None, token: str = None):
         """
