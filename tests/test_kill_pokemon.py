@@ -6,8 +6,8 @@ import pytest
 
 @pytest.mark.parametrize("request_body, token", CREATE_POKEMON_SUCCESS)
 def test_kill_pokemon_success(get_pokemon_api, create_pokemon_api, kill_all_pokemons_api, request_body, token):
-    # # Удаление всех покемонов перед тестом
-    # kill_all_pokemons_api.kill_all_pokemons(kill_all_pokemons_api, get_pokemon_api)
+    # Удаление всех покемонов перед тестом
+    kill_all_pokemons_api.kill_all_pokemons(kill_all_pokemons_api, get_pokemon_api)
 
     # Создание покемона
     response = create_pokemon_api.post_create_pokemon(request_body=request_body, headers=token)

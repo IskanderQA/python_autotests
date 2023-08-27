@@ -1,7 +1,7 @@
 from common.api.basic_methods import Api
 from config import token
 from test_data.trainers_data import get_pokemons_and_assignment_pokemon_id
-from tests.conftest import create_pokemon_api, get_pokemon_api
+from conftest import create_pokemon_api, get_pokemon_api
 
 class AddPokeballApi(Api):
 

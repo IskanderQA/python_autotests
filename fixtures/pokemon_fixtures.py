@@ -1,6 +1,6 @@
 import pytest
 from config import token
-from tests.conftest import create_pokemon_api, kill_all_pokemons_api, get_pokemon_api
+from conftest import create_pokemon_api, kill_all_pokemons_api, get_pokemon_api
 
 @pytest.fixture
 def create_pokemon_before_and_kill_all_after(create_pokemon_api, kill_all_pokemons_api, get_pokemon_api):
