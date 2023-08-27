@@ -2,10 +2,11 @@
 * common: 
   * api: вспомогательные проверочные функции/методы
   * helpers: logger, Schema
+* fixtures: фикстуры
 * test_data: различные тестовые данные, данные для сравнения и т.п.
 * tests: тесты
 * tests:
-  * conftest.py: фикстуры
+  * conftest.py: базовые фикстуры методов
 
 # Настройка для локального запуска
 Для локальной работы необходимо добавить .env файл (по примеру .env.example) или прописывать все данные вручную в config
@@ -125,5 +126,47 @@ pytest
 
 После успешной оплаты фотография тренера меняется на новую
   
+# Methods:
+* POST /trainers/reg
+  * Регистрация тренера
+* POST /trainers/confirm_email
+  * Активация тренера (подтверждение почты)
+* PUT /trainers/re
+  * Смена пароля
+* GET /?password_re=token
+  * Сброс пароля  
+*  POST /trainers/auth_google
+   *  Получение ссылки для авторизации в гугл
+*  POST /trainers/change_avatar
+   *  Покупка услуги «Сменить фото тренера»
+   * Сменить фото можно на сайте в разделе «Магазин»
+*  PATCH /trainers
+   *  Частичное обновление информации по тренеру
+*  PUT /trainers
+   *  Обновление информации по тренеру
+*  GET /trainers
+   *  Получение информации по всем тренерам
+*  POST /pokemons
+   *  Создание покемона
+*  GET /pokemons
+   *  Получение информации по покемонам
+*  PATCH /pokemons
+   *  Частично изменить покемона
+*  PUT /pokemons
+   *  Изменить покемона
+*  POST /trainers/add_pokeball
+   *  Поймать покемона в покебол
+*  PUT /trainers/delete_pokeball
+   *  Выселить покемона из покебола
+*  POST /pokemons/kill  
+   *  Убить своего покемона (как в покеболе так и без)
+*  POST /battle
+   *  Вызвать на битву другого покемона 
+*  GET /battles
+   *  Получение списка прошедших битв
+*  GET /debug_sentry
+   *  Этот запрос всегда возвращает 500.
+*  POST /trainers/download_history_done
+   * Ускорить создание файла «История битв» 
   
 # Backlog | To do list | Reminder
