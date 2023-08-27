@@ -48,3 +48,11 @@ DELETE_POKEMON_WITH_ERRORS = [
     ({"pokemon_id": "6338"}, {'trainer_token': token},
      {'message': 'Покемон вам не принадлежит!'}),
 ]
+
+ADD_POKEBALL_WITH_ERRORS = [
+    (
+        {"pokemon_id": 6533}, {"trainer_token": token}, {'message': 'Данный покемон мёртв'}),
+    ({"pokemon_id": 6300}, {"trainer_token": token}, {'message': 'Покемон вам не принадлежит!'}),
+    ({"pokemon_id": 6533, }, {"trainer_token": '123'}, {'message': 'Неверный токен', 'status': 'error'}),
+    ({"pokemon_id": 6533, }, {"trainer_token": ''}, {'message': 'токен отсутствует', 'status': 'error'}),
+]

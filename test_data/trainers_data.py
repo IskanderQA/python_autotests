@@ -45,3 +45,8 @@ UPDATING_INFO_WITH_ERRORS = [
 
 error_message_token = {"message": "токен отсутствует", "status": "error"}
 error_message_trainer_not_found = {'message': 'Тренер отсутствует', 'status': 'error'}
+
+
+def get_pokemons_and_assignment_pokemon_id(get_pokemon_api):
+    get_pokemons_from_trainer = get_pokemon_api.get_pokemons(trainer_id=2006)
+    return get_pokemons_from_trainer.response.json()[0]['id']
