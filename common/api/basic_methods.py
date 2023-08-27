@@ -5,7 +5,6 @@ from constants import _HEADERS
 
 
 class Api():
-
     _HEADERS = _HEADERS
     token = token
 
@@ -95,6 +94,11 @@ class Api():
 
         if headers:
             self._HEADERS.update(headers)
+        self.response = requests.patch(url=url,
+                                       headers=self._HEADERS,
+                                       json=json_body)
+        log(response=self.response, request_body=json_body)
+        return self
 
     def delete(self, url: str, headers: dict = None, json_body: dict = None, token: str = None):
         """

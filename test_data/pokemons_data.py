@@ -33,7 +33,22 @@ CREATE_POKEMON_WITH_ERRORS = [
          "name": "Qwerty",
          "photo": "123.ru"
      }, {'trainer_token': ''},
-     {'message': 'токен отсутствует', 'status': 'error'})
+     {'message': 'токен отсутствует', 'status': 'error'}),
+    ({
+         "name": "Qwerty",
+         "photo": "123.ru"
+     }, {'trainer_token': token},
+     {'message': 'Введите протокол изображения(https://)'}),
+    ({
+         "name": "Бульбазавр",
+         "photo": "https://dolnikov.ru/pokemons/albums"
+     }, {'trainer_token': token},
+     {'message': 'Изображение имеет не верный формат'}),
+    ({
+         "name": "Бульбазавр",
+         "photo": "https://dolnikov.ru/pokemons/albums.png"
+     }, {'trainer_token': token},
+     {'message': 'Изображение имеет не верный формат'}),
 ]
 
 DELETE_POKEMON_WITH_ERRORS = [

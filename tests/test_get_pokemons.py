@@ -1,6 +1,7 @@
 from common.helper.Schema.pokemons import pokemons_valid_structure
 from pytest_voluptuous import S
 from config import trainer_id
+from fixtures.pokemon_fixtures import create_pokemon_before_and_kill_all_after
 
 
 def test_get_pokemons(get_pokemon_api):
@@ -9,7 +10,7 @@ def test_get_pokemons(get_pokemon_api):
     assert S(pokemons_valid_structure) == response.response.json()[0]
 
 
-def test_get_pokemons_with_trainer_id(get_pokemon_api):
+def test_get_pokemons_with_trainer_id(create_pokemon_before_and_kill_all_after, get_pokemon_api):
     response = get_pokemon_api.get_pokemons(trainer_id=trainer_id)
     assert S(pokemons_valid_structure) == response.response.json()[0] and len(response.response.json()) <= 5
 
@@ -19,7 +20,7 @@ def test_get_pokemons_with_status(get_pokemon_api):
     assert S(pokemons_valid_structure) == response.response.json()[0]
 
 
-def test_get_pokemons_with_trainer_id_and_status(get_pokemon_api):
+def test_get_pokemons_with_trainer_id_and_status(create_pokemon_before_and_kill_all_after, get_pokemon_api):
     response = get_pokemon_api.get_pokemons(status=1, trainer_id=trainer_id)
     assert S(pokemons_valid_structure) == response.response.json()[0]
 
@@ -49,7 +50,7 @@ def test_get_pokemons_in_pokeballs_any_other_value(get_pokemon_api):
         item['in_pokeball'] == '0' for item in response.response.json()), "Отсутствуют объекты in_pokeball с ключом '0'"
 
 
-def test_get_pokemons_with_trainer_id_and_status_and_in_pokeball(get_pokemon_api):
+def test_get_pokemons_with_trainer_id_and_status_and_in_pokeball(create_pokemon_before_and_kill_all_after, get_pokemon_api):
     response = get_pokemon_api.get_pokemons(status=1, trainer_id=trainer_id, in_pokeball=0)
     assert S(pokemons_valid_structure) == response.response.json()[0]
 

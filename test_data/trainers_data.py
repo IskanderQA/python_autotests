@@ -50,3 +50,47 @@ error_message_trainer_not_found = {'message': 'Тренер отсутствуе
 def get_pokemons_and_assignment_pokemon_id(get_pokemon_api):
     get_pokemons_from_trainer = get_pokemon_api.get_pokemons(trainer_id=trainer_id)
     return get_pokemons_from_trainer.response.json()[0]['id']
+
+
+PATCH_TRAINERS_SUCCESS = [
+    ({
+         "name": "Ash",
+     }, {'trainer_token': token},
+     'Информация о тренере обновлена'),
+    ({
+         "city": "Tokyo"
+     }, {'trainer_token': token},
+     'Информация о тренере обновлена'),
+    ({
+         "name": "Ash",
+         "city": "Tokyo"
+     }, {'trainer_token': token},
+     'Информация о тренере обновлена')
+]
+
+PATCH_TRAINERS_ERRORS = [
+    ({"name": "Ash"},
+     {'trainer_token': ''},
+     'токен отсутствует'),
+    ({"name": "Ash"},
+     {'trainer_token': 'asdadsasd'},
+     'Неверный токен'),
+    ({"city": "Tokyo"},
+     {'trainer_token': ''},
+     'токен отсутствует'),
+    ({"city": "Tokyo"},
+     {'trainer_token': 'asdasdasd'},
+     'Неверный токен'),
+    ({
+         "name": "Ash",
+         "city": "Tokyo"
+     },
+     {'trainer_token': ''},
+     'токен отсутствует'),
+    ({
+         "name": "Ash",
+         "city": "Tokyo"
+     },
+     {'trainer_token': 'asdasdasd'},
+     'Неверный токен')
+]
