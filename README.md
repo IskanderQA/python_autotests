@@ -126,7 +126,7 @@ pytest
 
 После успешной оплаты фотография тренера меняется на новую
   
-# Methods:
+# Methods
 * POST /trainers/reg
   * Регистрация тренера
 * POST /trainers/confirm_email
@@ -165,7 +165,7 @@ pytest
 *  GET /battles
    *  Получение списка прошедших битв
 *  GET /debug_sentry
-   *  Этот запрос всегда возвращает 500.
+   *  Этот запрос всегда возвращает 500
 *  POST /trainers/download_history_done
    * Ускорить создание файла «История битв» 
   
