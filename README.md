@@ -171,3 +171,6 @@ pytest
   
 # Backlog | To do list | Reminder
 Добавить информацию по настройке voluptuous и loguru при клонировании репозитория
+pip install pytest-voluptuous
+pip install loguru
+
