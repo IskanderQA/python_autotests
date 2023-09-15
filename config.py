@@ -10,6 +10,7 @@ POKEMONS_URL = f'{HTTP_SCHEMA}{POKEMONS_HOST}:{POKEMONS_PORT}'
 
 # Trainer data
 token=os.getenv('TOKEN')
+second_token=os.getenv('SECOND_TOKEN')
 trainer_id=os.getenv('TRAINER_ID')
 
 # User data
