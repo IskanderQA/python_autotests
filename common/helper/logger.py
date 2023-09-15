@@ -1,4 +1,6 @@
 from loguru import logger
+
+
 def log(response, request_body=None):
     '''
     Logging methods
